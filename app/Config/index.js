@@ -30,7 +30,7 @@ export const Config = {
     '4': 'rgb(250,101,101)',
     '5': 'rgb(161,140,209)',
   },
-  HeaderColor: ['#67dfd0', '#54cddc', '#41bce9'],
+  HeaderColor: ['rgb(78,56,131)', 'rgb(111,70,110)', 'rgb(206,92,99)'],
 
   Shadows: {
     '0': ['rgba(0, 0, 0,0.4)', 'rgba(255, 255, 255,0.001)'],

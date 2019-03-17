@@ -1,12 +1,13 @@
 import React from 'react'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import { setTopLevelNavigator } from 'app/services/navigation'
-// import { ExampleScreen } from 'app/screens/ExampleScreen'
 import { HomeScreen } from 'app/screens/HomeScreen'
+import { WebScreen } from 'app/screens/WebScreen'
 
 const AppNavigator = createStackNavigator(
   {
     HomeScreen,
+    WebScreen,
   },
   {
     initialRouteName: 'HomeScreen',

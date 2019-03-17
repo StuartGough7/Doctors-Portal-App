@@ -1,20 +1,18 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { Text, View, TouchableOpacity, StatusBar, Image } from 'react-native'
+import { Text, View, TouchableOpacity, StatusBar, Image, Platform } from 'react-native'
 import navigation from 'app/services/navigation'
-// import { LinearGradient } from 'app/components/common'
+import { LinearGradient } from 'app/components/common'
 import { Config } from 'app/config'
 
 export const Header = (props) => {
   return (
     <View style={styles.HeaderStyle}>
-      {/* <StatusBar hidden /> */}
-      <View style={styles.LeftCornerStyle}>
-      </View>
+      <StatusBar hidden />
       <View style={styles.ShadowWrapper}>
         <View style={styles.NavStyle}>
-          {/* <LinearGradient Color={Config.HeaderColor} styles={{ flexDirection: 'row' }}> */}
+          <LinearGradient Color={Config.HeaderColor} styles={{ flexDirection: 'row' }}>
             <View style={styles.MidStyle}>
               <View style={styles.WhiteCircle}>
                 {/* <Image style={styles.Icons} source={Images.General.Assessment} /> */}
@@ -23,7 +21,7 @@ export const Header = (props) => {
             </View>
             <View style={styles.RightCornerStyle}>
             </View>
-          {/* </LinearGradient> */}
+          </LinearGradient>
         </View>
       </View>
     </View>
@@ -41,8 +39,7 @@ const styles = {
     paddingBottom: 10,
   },
   ShadowWrapper: {
-    flex: 0.9,
-    height: '100%',
+    flex: 1,
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
@@ -51,16 +48,9 @@ const styles = {
   NavStyle: {
     flex: 1,
     flexDirection: 'row',
-    borderTopLeftRadius: 40,
+    borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
     overflow: 'hidden',
-  },
-  LeftCornerStyle: {
-    height: '100%',
-    flex: 0.2,
-    paddingLeft: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   MidStyle: {
     width: '80%',
@@ -92,10 +82,10 @@ const styles = {
   },
   textStyle: {
     color: 'white',
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'left',
-    fontFamily: 'Quicksand-Bold',
+    paddingTop: 20,
     paddingLeft: 20,
   },
   WhiteCircle: {

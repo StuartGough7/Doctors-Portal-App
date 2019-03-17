@@ -1,10 +1,23 @@
 import React from 'react'
-import navigation from 'app/services/navigation'
-import { LayoutNoBottom } from 'app/components/common'
+import { View, Text } from 'react-native'
+import { navigate } from 'app/services/navigation'
+import { LayoutNoBottom, Linker } from 'app/components/common'
 
 
-export default React.memo(() => {
+export const HomeScreen = () => {
   return (
-    <LayoutNoBottom />
+    <LayoutNoBottom 
+      TopContent={
+        <Linker OnPress={()=> navigate('WebScreen', null)} >
+          <Text> Link to Online  </Text>
+        </Linker>
+      }
+      MidContent= {
+        <View />
+      }
+      BotContent= {
+        <View />
+      }
+    />
   )
-})
+}
