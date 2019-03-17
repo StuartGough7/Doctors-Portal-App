@@ -1,4 +1,4 @@
-package com.boilerplate;
+package com.doctorsportal;
 
 import android.app.Application;
 
