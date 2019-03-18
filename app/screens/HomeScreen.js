@@ -1,23 +1,32 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 import { navigate } from 'app/services/navigation'
-import { LayoutNoBottom, Linker } from 'app/components/common'
-
+import {
+  LayoutNoBottom,
+  Linker,
+  ColorDivider,
+  CustomPicker,
+  StandardButton,
+} from 'app/components/common'
 
 export const HomeScreen = () => {
   return (
-    <LayoutNoBottom 
+    <LayoutNoBottom
       TopContent={
-        <Linker OnPress={()=> navigate('WebScreen', null)} >
-          <Text> Link to Online  </Text>
-        </Linker>
+        <>
+          <Linker OnPress={() => navigate('WebScreen', null)}>
+            <Text> Link to Online </Text>
+          </Linker>
+          <ColorDivider />
+        </>
       }
-      MidContent= {
-        <View />
+      MidContent={
+        <>
+          <CustomPicker />
+          <StandardButton Text={'Add Activity'} OnPress={() => {}} />
+        </>
       }
-      BotContent= {
-        <View />
-      }
+      // BotContent={ }
     />
   )
 }

@@ -3,7 +3,7 @@ import { TouchableOpacity, Text } from 'react-native'
 
 export const Linker = (props) => {
   return (
-    <TouchableOpacity onPress={()=> props.OnPress()} style={styles.containerStyle}>
+    <TouchableOpacity onPress={() => props.OnPress()} style={styles.containerStyle}>
       <Text style={styles.textStyle}>{props.children}</Text>
     </TouchableOpacity>
   )

@@ -19,8 +19,7 @@ export const Header = (props) => {
               </View>
               <Text style={styles.textStyle}>{props.headerText}</Text>
             </View>
-            <View style={styles.RightCornerStyle}>
-            </View>
+            <View style={styles.RightCornerStyle} />
           </LinearGradient>
         </View>
       </View>
