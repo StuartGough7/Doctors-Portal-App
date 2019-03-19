@@ -11,4 +11,7 @@ export * from './buttons/OnlineLink'
 
 export * from './lists/ActivityList'
 
+export * from './popup/FormPopUpCard'
+
 export * from '../layouts/LayoutNoBottom'
+export * from '../layouts/FormPopUpCardLayout'

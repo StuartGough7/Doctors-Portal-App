@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text } from 'react-native'
 import { navigate } from 'app/services/navigation'
 import {
@@ -9,9 +9,11 @@ import {
   StandardButton,
   TextHeading,
   ActivityList,
+  FormPopUpCard,
 } from 'app/components/common'
 
 export const HomeScreen = () => {
+  const [pop, setPop] = useState(false)
   return (
     <LayoutNoBottom
       TopContent={
@@ -26,7 +28,12 @@ export const HomeScreen = () => {
       MidContent={
         <>
           <CustomPicker />
-          <StandardButton Text={'Add Activity'} OnPress={() => {}} />
+          <StandardButton Text={'Add Activity'} OnPress={() => setPop(true)} />
+          <FormPopUpCard
+            visible={pop}
+            OnPress={() => setPop((pop) => !pop)}
+            hide={() => setPop(false)}
+          />
         </>
       }
       BotContent={
