@@ -30,14 +30,12 @@ const styles = {
   CoverView: {
     height: 100,
     width: '80%',
-    marginBottom: 100,
+    marginBottom: 20,
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    // overflow: 'hidden',
   },
   containerStyle: {
-    height: 1,
     width: '80%',
   },
   itemStyle: {

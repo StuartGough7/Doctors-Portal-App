@@ -3,10 +3,12 @@ import { Text } from 'react-native'
 import { navigate } from 'app/services/navigation'
 import {
   LayoutNoBottom,
-  Linker,
+  OnlineLink,
   ColorDivider,
   CustomPicker,
   StandardButton,
+  TextHeading,
+  ActivityList,
 } from 'app/components/common'
 
 export const HomeScreen = () => {
@@ -14,10 +16,11 @@ export const HomeScreen = () => {
     <LayoutNoBottom
       TopContent={
         <>
-          <Linker OnPress={() => navigate('WebScreen', null)}>
+          <OnlineLink OnPress={() => navigate('WebScreen', null)}>
             <Text> Link to Online </Text>
-          </Linker>
+          </OnlineLink>
           <ColorDivider />
+          <TextHeading Text={'Select A Domain Below'} />
         </>
       }
       MidContent={
@@ -26,7 +29,12 @@ export const HomeScreen = () => {
           <StandardButton Text={'Add Activity'} OnPress={() => {}} />
         </>
       }
-      // BotContent={ }
+      BotContent={
+        <>
+          <TextHeading Text={'Activity List'} />
+          <ActivityList />
+        </>
+      }
     />
   )
 }

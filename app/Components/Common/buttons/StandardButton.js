@@ -18,7 +18,6 @@ export const StandardButton = (props) => {
 
 const styles = {
   ShadowWrapper: {
-    alignSelf: 'center',
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
@@ -33,7 +32,6 @@ const styles = {
   buttonStyle: {
     height: 50,
     width: 200,
-    backgroundColor: '#fff',
     borderRadius: 25,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
