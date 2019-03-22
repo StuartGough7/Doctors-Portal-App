@@ -9,7 +9,6 @@ export const ColorDivider = (props) => {
 const styles = {
   containerStyle: {
     flex: 0,
-    backgroundColor: 'red',
     height: 10,
     width: '80%',
     borderRadius: 5,

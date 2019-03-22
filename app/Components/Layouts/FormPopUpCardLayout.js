@@ -7,6 +7,7 @@ export const FormPopUpCardLayout = React.memo((props) => {
   return (
     <Modal
       isVisible={props.visible}
+      style={styles.background}
       backdropOpacity={0.2}
       animationIn="slideInUp"
       animationOut="slideOutDown"
@@ -16,14 +17,12 @@ export const FormPopUpCardLayout = React.memo((props) => {
       backdropTransitionOutTiming={500}
       onBackdropPress={() => props.hide()}
     >
-      <View style={styles.background}>
-        <View style={styles.ContainerSection}>
-          <View style={styles.TopPop}>{props.TopPop}</View>
-          <View style={styles.MidPop}>{props.MidPop}</View>
-          <View style={styles.BotPop}>
-            <View style={styles.BotPop1}>{props.BotPop1}</View>
-            <View style={styles.BotPop2}>{props.BotPop2}</View>
-          </View>
+      <View style={styles.ContainerSection}>
+        <View style={styles.TopPop}>{props.TopPop}</View>
+        <View style={styles.MidPop}>{props.MidPop}</View>
+        <View style={styles.BotPop}>
+          <View style={styles.BotPop1}>{props.BotPop1}</View>
+          <View style={styles.BotPop2}>{props.BotPop2}</View>
         </View>
       </View>
     </Modal>
@@ -31,6 +30,11 @@ export const FormPopUpCardLayout = React.memo((props) => {
 })
 
 const styles = {
+  background: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   ContainerSection: {
     height: '80%',
     width: '95%',
@@ -44,17 +48,24 @@ const styles = {
     shadowRadius: 10,
   },
   TopPop: {
-    flex: 0.15,
+    flex: 0.1,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'row',
+    borderBottomWidth: 5,
+    borderColor: '#240F48',
   },
   MidPop: {
-    flex: 0.55,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flex: 0.7,
+    width: '100%',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   BotPop: {
-    flex: 0.3,
+    flex: 0.2,
+    width: '100%',
     flexDirection: 'row',
   },
   BotPop1: {
@@ -68,17 +79,5 @@ const styles = {
     flexDirection: 'row-reverse',
     justifyContent: 'flex-start',
     alignItems: 'center',
-  },
-  background: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  dashed: {
-    width: '100%',
-    height: 2,
-    borderWidth: 1,
-    borderColor: 'rgb(29,149,196)',
-    borderStyle: 'dashed',
   },
 }
