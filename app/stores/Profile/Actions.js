@@ -1,17 +1,30 @@
 import { createActions } from 'reduxsauce'
 
 const signals = {
-  requestCreateProfile: ['name', 'IconNum', 'dateOfBirth'],
-  requestDeleteProfile: ['id'],
-  requestProfileInfo: ['id'],
-  requestReport: ['id', 'completedAt'],
+  requestCreateProfile: [
+    'Date',
+    'category',
+    'Notes',
+    'Duration',
+    'Learning',
+    'Satisfaction',
+    'Involvement',
+  ],
 }
 
 const { Types, Creators } = createActions({
-  createProfile: ['id', 'name', 'IconNum', 'dateOfBirth', 'createdAt'], // Create a new profile with the data provided
-  deleteProfile: ['id'], // delete profile with the id provided
+  createProfile: [
+    'createdAt',
+    'Date',
+    'category',
+    'Notes',
+    'Duration',
+    'Learning',
+    'Satisfaction',
+    'Involvement',
+  ], // Create a new profile with the data provided
   ...signals, // Spread all the signals here
 })
 
-export const ProfilesTypes = Types
+export const ProfileTypes = Types
 export default Creators
