@@ -3,12 +3,12 @@ import React from 'react'
 import { Text } from 'react-native'
 import { FormPopUpCardLayout, CardButton, FormList } from 'app/components/common'
 
-export const FormPopUpCard = (props) => {
+export const FormPopUpCard = React.memo((props) => {
   return (
     <FormPopUpCardLayout
       visible={props.visible}
       hide={() => props.hide()}
-      TopPop={<Text style={styles.HeadingStyle}> Form Fill </Text>}
+      TopPop={<Text style={styles.HeadingStyle}>{`${props.category} Form`}</Text>}
       MidPop={<FormList />}
       BotPop1={
         <CardButton
@@ -29,7 +29,7 @@ export const FormPopUpCard = (props) => {
       }
     />
   )
-}
+})
 
 const styles = {
   container: {

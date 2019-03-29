@@ -14,6 +14,7 @@ import {
 
 export const HomeScreen = () => {
   const [pop, setPop] = useState(false)
+  const [category, setCategory] = useState('Paediatrics')
   return (
     <LayoutNoBottom
       TopContent={
@@ -27,10 +28,11 @@ export const HomeScreen = () => {
       }
       MidContent={
         <>
-          <CustomPicker />
+          <CustomPicker SetValue={(item) => setCategory(item)} />
           <StandardButton Text={'Add Activity'} OnPress={() => setPop(true)} />
           <FormPopUpCard
             visible={pop}
+            category={category}
             OnPress={() => setPop((pop) => !pop)}
             hide={() => setPop(false)}
           />

@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 import { View, Text } from 'react-native'
 import { TextIn } from 'app/components/common'
 
-export const FormList = (props) => {
+export const FormList = React.memo((props) => {
   const [date, setDate] = useState('')
+  const [notes, setNotes] = useState('')
+  const [duration, setDuration] = useState('')
+  const [learning, setLearning] = useState('')
+  const [satisfaction, setSatisfaction] = useState('')
+  const [involvement, setInvolvement] = useState('')
   return (
     <>
       <View style={styles.Section}>
@@ -30,9 +35,9 @@ export const FormList = (props) => {
           <TextIn
             wrong={false}
             placeholder="Insert Notes"
-            value={date}
+            value={notes}
             onChangeText={(value) => {
-              setDate(value)
+              setNotes(value)
             }}
           />
         </View>
@@ -46,9 +51,9 @@ export const FormList = (props) => {
           <TextIn
             wrong={false}
             placeholder="Insert Duration"
-            value={date}
+            value={duration}
             onChangeText={(value) => {
-              setDate(value)
+              setDuration(value)
             }}
           />
         </View>
@@ -62,9 +67,9 @@ export const FormList = (props) => {
           <TextIn
             wrong={false}
             placeholder="Insert Learning Experience"
-            value={date}
+            value={learning}
             onChangeText={(value) => {
-              setDate(value)
+              setLearning(value)
             }}
           />
         </View>
@@ -78,9 +83,9 @@ export const FormList = (props) => {
           <TextIn
             wrong={false}
             placeholder="Insert Satisfaction"
-            value={date}
+            value={satisfaction}
             onChangeText={(value) => {
-              setDate(value)
+              setSatisfaction(value)
             }}
           />
         </View>
@@ -94,17 +99,16 @@ export const FormList = (props) => {
           <TextIn
             wrong={false}
             placeholder="Insert Involvement"
-            value={date}
+            value={involvement}
             onChangeText={(value) => {
-              setDate(value)
+              setInvolvement(value)
             }}
           />
         </View>
       </View>
-
     </>
   )
-}
+})
 
 const styles = {
   Section: {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Picker } from 'react-native'
 
-export const CustomPicker = (props) => {
+export const CustomPicker = React.memo((props) => {
   const [Value, SetValue] = useState('Select a Domain')
 
   return (
@@ -10,7 +10,10 @@ export const CustomPicker = (props) => {
         selectedValue={Value}
         style={styles.containerStyle}
         itemStyle={styles.itemStyle}
-        onValueChange={(itemValue, itemIndex) => SetValue(itemValue)}
+        onValueChange={(itemValue, itemIndex) => {
+          SetValue(itemValue)
+          props.SetValue(itemValue)
+        }}
         mode={'dropdown'}
       >
         <Picker.Item label="Paediatrics" value="Paediatrics" />
@@ -24,7 +27,7 @@ export const CustomPicker = (props) => {
       </Picker>
     </View>
   )
-}
+})
 
 const styles = {
   CoverView: {

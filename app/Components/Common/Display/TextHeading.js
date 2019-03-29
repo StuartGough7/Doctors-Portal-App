@@ -7,10 +7,11 @@ export const TextHeading = (props) => {
 
 const styles = {
   textStyle: {
-    color: 'white',
+    color: 'rgb(206,92,99)',
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'left',
+    textAlign: 'center',
     marginTop: '10%',
+    marginBottom: '10%',
   },
 }
