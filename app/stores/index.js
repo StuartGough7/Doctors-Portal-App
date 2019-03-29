@@ -1,10 +1,6 @@
 import { combineReducers } from 'redux'
-import example from './example'
+import profile from './Profile'
 
 export const rootReducer = combineReducers({
-  /**
-   * Register your reducers here.
-   * @see https://redux.js.org/api-reference/combinereducers
-   */
-  example,
+  profile,
 })
