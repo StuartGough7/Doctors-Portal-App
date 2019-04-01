@@ -1,8 +1,10 @@
 import React from 'react'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
+import { useOnMount, useMappedAction } from 'app/hooks'
 import { setTopLevelNavigator } from 'app/services/navigation'
 import { HomeScreen } from 'app/screens/HomeScreen'
 import { WebScreen } from 'app/screens/WebScreen'
+import StartupActions from 'app/stores/Startup/Actions'
 
 const AppNavigator = createStackNavigator(
   {
@@ -16,7 +18,16 @@ const AppNavigator = createStackNavigator(
 )
 
 const AppContainer = createAppContainer(AppNavigator)
+const mapActions = {
+  startup: StartupActions.startup,
+}
 
-export const RootScreen = () => (
-  <AppContainer ref={(navigatorRef) => setTopLevelNavigator(navigatorRef)} />
-)
+export const RootScreen = () => {
+  const { startup } = useMappedAction(mapActions)
+
+  useOnMount(() => {
+    startup()
+  })
+
+  return <AppContainer ref={(navigatorRef) => setTopLevelNavigator(navigatorRef)} />
+}

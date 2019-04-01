@@ -3,7 +3,7 @@ import { Platform, UIManager } from 'react-native'
 import { StoreContext } from 'redux-react-hook'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 import { RootScreen } from 'app/screens/RootScreen'
-import { createStore } from './createStore'
+import createStore from 'app/stores'
 
 const { store, persistor } = createStore()
 

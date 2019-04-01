@@ -19,6 +19,8 @@ export const createProfile = (
     involvement,
   })
 
+export const getAll = (state) => Array.from(state.profile.values())
+
 // Reduxsauce Create Reducer
 export default createReducer(INITIAL_STATE, {
   [ProfileTypes.CREATE_PROFILE]: createProfile,

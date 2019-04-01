@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Text } from 'react-native'
 import { navigate } from 'app/services/navigation'
+import { getAll } from 'app/stores/Profile'
+import { useMappedState } from 'app/hooks'
 import {
   LayoutNoBottom,
   OnlineLink,
@@ -12,9 +14,15 @@ import {
   FormPopUpCard,
 } from 'app/components/common'
 
+const mapState = (state) => ({
+  profiles: getAll(state),
+})
+
 export const HomeScreen = () => {
   const [pop, setPop] = useState(false)
   const [category, setCategory] = useState('Paediatrics')
+  const { profiles } = useMappedState(mapState)
+  console.warn([profiles])
   return (
     <LayoutNoBottom
       TopContent={

@@ -1,4 +1,5 @@
 export * from './useMappedAction'
 export * from './useMappedState'
+export * from './useOnMount'
 export * from './useOnUpdate'
 export * from './usePrevious'
