@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text } from 'react-native'
 import { navigate } from 'app/services/navigation'
-import { getAll } from 'app/stores/Entry'
+import { getAllEntriesByCategory } from 'app/stores/Entry'
 import { useMappedState } from 'app/hooks'
 import {
   LayoutNoBottom,
@@ -15,14 +15,15 @@ import {
 } from 'app/components/common'
 
 const mapState = (state) => ({
-  entries: getAll(state),
+  entries: (category) => getAllEntriesByCategory(state, category),
 })
 
 export const HomeScreen = () => {
   const [pop, setPop] = useState(false)
   const [category, setCategory] = useState('Paediatrics')
+  const [entriesList, setEntriesList] = useState([])
   const { entries } = useMappedState(mapState)
-  console.warn([entries])
+  useEffect(() => setEntriesList(entries(category)), [category, pop])
   return (
     <LayoutNoBottom
       TopContent={
@@ -49,7 +50,7 @@ export const HomeScreen = () => {
       BotContent={
         <>
           <TextHeading Text={'Activity List'} />
-          <ActivityList />
+          <ActivityList Entries={entriesList} />
         </>
       }
     />

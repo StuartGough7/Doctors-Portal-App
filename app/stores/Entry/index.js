@@ -22,7 +22,10 @@ export const createEntry = (
   })
 }
 
-export const getAll = (state) => Array.from(state.entry.values())
+export const getAllEntriesByCategory = (state, category) => {
+  const ListedEntries = Array.from(Object.keys(state.entry.get(category) || {})) // selects all entries for specific Category
+  return ListedEntries.reverse()
+}
 
 // Reduxsauce Create Reducer
 export default createReducer(INITIAL_STATE, {

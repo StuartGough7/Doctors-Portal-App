@@ -2,9 +2,8 @@ import React from 'react'
 import { SingleActivity } from 'app/components/common'
 
 export const ActivityList = (props) => {
-  const AllActivities = [1, 2, 3]
   const renderList = () =>
-    AllActivities.map((item, index) => {
+    props.Entries.map((item, index) => {
       return (
         <SingleActivity
           date={'29 Jan 2019'}
