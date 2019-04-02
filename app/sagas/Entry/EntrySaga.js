@@ -1,11 +1,11 @@
 import { put, call } from 'redux-saga/effects'
-import ProfileActions from 'app/stores/Profile/Actions'
+import EntryActions from 'app/stores/Entry/Actions'
 // import { generateRandomId } from 'app/services/Utils'
 
-export function* createProfile({
-  date,
+export function* createEntry({
   category,
-  Notes,
+  date,
+  notes,
   duration,
   learning,
   satisfaction,
@@ -14,15 +14,15 @@ export function* createProfile({
   // const nextProfileId = yield call(generateRandomId)
   const createdAt = yield call(Date.now)
   yield put(
-    ProfileActions.createProfile(
+    EntryActions.createEntry(
+      category,
       createdAt,
       date,
-      category,
-      Notes,
+      notes,
       duration,
       learning,
       satisfaction,
       involvement
     )
-  ) // Create a new profile
+  ) // Create a new entry
 }

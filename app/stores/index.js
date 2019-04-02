@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import configureStore from './CreateStore'
 import rootSaga from 'app/sagas'
-import profile from './Profile'
+import entry from './Entry'
 
 export default () => {
   const rootReducer = combineReducers({
-    profile,
+    entry,
   })
 
   return configureStore(rootReducer, rootSaga)

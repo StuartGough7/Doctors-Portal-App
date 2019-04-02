@@ -1,12 +1,12 @@
 import { all, takeLatest } from 'redux-saga/effects'
 import { StartupTypes } from 'app/stores/Startup/Actions'
-import { ProfileTypes } from 'app/stores/Profile/Actions'
+import { EntryTypes } from 'app/stores/Entry/Actions'
 import { startup } from './Startup/StartupSaga'
-import { createProfile } from './Profile/ProfileSaga'
+import { createEntry } from './Entry/EntrySaga'
 
 export default function* root() {
   yield all([
     takeLatest(StartupTypes.STARTUP, startup),
-    takeLatest(ProfileTypes.REQUEST_CREATE_PROFILE, createProfile), // Run the profile saga when creating a new profile
+    takeLatest(EntryTypes.REQUEST_CREATE_ENTRY, createEntry), // Run the profile saga when creating a new profile
   ])
 }

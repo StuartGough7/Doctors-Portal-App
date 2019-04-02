@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Text } from 'react-native'
 import { navigate } from 'app/services/navigation'
-import { getAll } from 'app/stores/Profile'
+import { getAll } from 'app/stores/Entry'
 import { useMappedState } from 'app/hooks'
 import {
   LayoutNoBottom,
@@ -15,14 +15,14 @@ import {
 } from 'app/components/common'
 
 const mapState = (state) => ({
-  profiles: getAll(state),
+  entries: getAll(state),
 })
 
 export const HomeScreen = () => {
   const [pop, setPop] = useState(false)
   const [category, setCategory] = useState('Paediatrics')
-  const { profiles } = useMappedState(mapState)
-  console.warn([profiles])
+  const { entries } = useMappedState(mapState)
+  console.warn([entries])
   return (
     <LayoutNoBottom
       TopContent={

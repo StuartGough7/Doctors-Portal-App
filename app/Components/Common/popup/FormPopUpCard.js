@@ -2,15 +2,15 @@
 import React from 'react'
 import { Text } from 'react-native'
 import { FormPopUpCardLayout, CardButton, FormList } from 'app/components/common'
-import ProfileActions from 'app/stores/Profile/Actions'
+import EntryActions from 'app/stores/Entry/Actions'
 import { useMappedAction } from 'app/hooks'
 
 const mapActions = {
-  createProfile: ProfileActions.requestCreateProfile,
+  createEntry: EntryActions.requestCreateEntry,
 }
 
 export const FormPopUpCard = React.memo((props) => {
-  const { createProfile } = useMappedAction(mapActions)
+  const { createEntry } = useMappedAction(mapActions)
   return (
     <FormPopUpCardLayout
       visible={props.visible}
@@ -28,9 +28,9 @@ export const FormPopUpCard = React.memo((props) => {
         <CardButton
           Text={'Submit'}
           OnPress={() => {
-            createProfile(
+            createEntry(
+              props.category,
               'Datea',
-              'categoray',
               'Noteas',
               'Durataion',
               'Learaning',
