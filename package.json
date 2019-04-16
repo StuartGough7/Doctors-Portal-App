@@ -13,6 +13,7 @@
     "remotedev": "remotedev --hostname=localhost --port=8000"
   },
   "dependencies": {
+    "@react-native-community/slider": "^1.0.4",
     "immutable": "4.0.0-rc.12",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.1",
