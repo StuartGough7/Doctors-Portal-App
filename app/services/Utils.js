@@ -5,7 +5,8 @@ export const generateRandomId = () => uuidv4()
 export const calculateDate = (timestamp) => {
   const DatObj = new Date(parseInt(timestamp, 10))
   const Month = _monthSwitch(DatObj.getMonth())
-  return { Date: DatObj.getDate(), Month: Month, Year: DatObj.getUTCFullYear() }
+  const dateString = [`${DatObj.getDate()} ${Month} ${DatObj.getUTCFullYear()}`]
+  return dateString
 }
 
 const _monthSwitch = (number) => {
