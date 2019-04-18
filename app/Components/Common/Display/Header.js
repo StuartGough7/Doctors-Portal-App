@@ -1,10 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable no-unused-vars */
 import React from 'react'
-import { Text, View, TouchableOpacity, StatusBar, Image, Platform } from 'react-native'
-import navigation from 'app/services/navigation'
+import { Text, View, TouchableOpacity, StatusBar, Image } from 'react-native'
 import { LinearGradient } from 'app/components/common'
 import { Config } from 'app/config'
+import { Images } from 'app/theme/Images'
+import { navigate } from 'app/services/navigation'
 
 export const Header = (props) => {
   return (
@@ -14,9 +14,12 @@ export const Header = (props) => {
         <View style={styles.NavStyle}>
           <LinearGradient Color={Config.HeaderColor} styles={{ flexDirection: 'row' }}>
             <View style={styles.MidStyle}>
-              <View style={styles.WhiteCircle}>
-                {/* <Image style={styles.Icons} source={Images.General.Assessment} /> */}
-              </View>
+              <TouchableOpacity
+                onPress={() => navigate('HomeScreen', null)}
+                style={styles.WhiteCircle}
+              >
+                <Image style={styles.Icons} source={Images.Logo} />
+              </TouchableOpacity>
               <Text style={styles.textStyle}>{props.headerText}</Text>
             </View>
             <View style={styles.RightCornerStyle} />
@@ -88,7 +91,6 @@ const styles = {
     paddingLeft: 20,
   },
   WhiteCircle: {
-    backgroundColor: '#fff',
     height: 60,
     width: 60,
     borderRadius: 30,
@@ -96,6 +98,7 @@ const styles = {
   Icons: {
     height: '100%',
     width: '100%',
+    borderRadius: 10,
     resizeMode: 'contain',
   },
 }
