@@ -6,12 +6,13 @@ const INITIAL_STATE = OrderedMap({})
 
 export const createEntry = (
   state,
-  { createdAt, date, category, notes, duration, learning, satisfaction, involvement }
+  { createdAt, title, date, category, notes, duration, learning, satisfaction, involvement }
 ) => {
   const currentCategory = state.get(category) || {}
   return state.set(category, {
     ...currentCategory,
     [createdAt]: {
+      title,
       date,
       notes,
       duration,
@@ -22,9 +23,16 @@ export const createEntry = (
   })
 }
 
+// =========== Selectors ===================================
+
 export const getAllEntriesByCategory = (state, category) => {
   const ListedEntries = Array.from(Object.keys(state.entry.get(category) || {})) // selects all entries for specific Category
   return ListedEntries.reverse()
+}
+
+export const singleEntryDetailsByDateKey = (state, category, date) => {
+  const singleEntry = state.entry.getIn([category, date])
+  return singleEntry
 }
 
 // Reduxsauce Create Reducer

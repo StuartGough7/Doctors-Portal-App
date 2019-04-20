@@ -8,7 +8,7 @@ export const SingleActivity = (props) => {
         <Text style={styles.textStyle}>{props.date}</Text>
       </View>
       <View style={styles.Section2}>
-        <Text style={styles.textStyle}>{props.entry}</Text>
+        <Text style={styles.textStyle}>{props.details.title || 'No Title'}</Text>
       </View>
       <View style={styles.Section3} />
     </View>

@@ -12,6 +12,7 @@ const mapActions = {
 export const FormPopUpCard = React.memo((props) => {
   const { createEntry } = useMappedAction(mapActions)
 
+  const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
   const [notes, setNotes] = useState('')
   const [duration, setDuration] = useState(0)
@@ -26,7 +27,8 @@ export const FormPopUpCard = React.memo((props) => {
       TopPop={<Text style={styles.HeadingStyle}>{`${props.category} Form`}</Text>}
       MidPop={
         <FormList
-          formFields={{ date, notes, duration, learning, satisfaction, involvement }}
+          formFields={{ title, date, notes, duration, learning, satisfaction, involvement }}
+          setTitle={(value) => setTitle(value)}
           setDate={(value) => setDate(value)}
           setNotes={(value) => setNotes(value)}
           setDuration={(value) => setDuration(value)}
@@ -46,7 +48,16 @@ export const FormPopUpCard = React.memo((props) => {
         <CardButton
           Text={'Submit'}
           OnPress={() => {
-            createEntry(props.category, date, notes, duration, learning, satisfaction, involvement)
+            createEntry(
+              props.category,
+              title,
+              date,
+              notes,
+              duration,
+              learning,
+              satisfaction,
+              involvement
+            )
             props.hide()
           }}
           styles={{ borderBottomLeftRadius: 35, borderTopLeftRadius: 35 }}

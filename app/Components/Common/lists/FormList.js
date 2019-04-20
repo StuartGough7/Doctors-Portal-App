@@ -9,6 +9,19 @@ export const FormList = React.memo((props) => {
     <>
       <View style={styles.Section}>
         <View style={styles.Split1}>
+          <Text style={styles.textStyle}>Title:</Text>
+        </View>
+        <View style={styles.Split2}>
+          <TextIn
+            wrong={false}
+            placeholder="Note Title"
+            value={props.formFields.title}
+            onChangeText={(value) => props.setTitle(value)}
+          />
+        </View>
+      </View>
+      <View style={styles.Section}>
+        <View style={styles.Split1}>
           <Text style={styles.textStyle}>Date:</Text>
         </View>
         <View style={styles.Split2}>
@@ -41,7 +54,7 @@ export const FormList = React.memo((props) => {
         </View>
         <View style={styles.Split2}>
           <Slider
-            style={{ width: '80%', height: 40 }}
+            style={styles.slider}
             step
             value={props.formFields.duration}
             minimumValue={0}
@@ -50,6 +63,7 @@ export const FormList = React.memo((props) => {
             maximumTrackTintColor="rgba(160,160,160,0.6)"
             onValueChange={(value) => props.setDuration(value)}
           />
+          <Text style={styles.textStyle}>{props.formFields.duration}</Text>
         </View>
       </View>
 
@@ -59,7 +73,7 @@ export const FormList = React.memo((props) => {
         </View>
         <View style={styles.Split2}>
           <Slider
-            style={{ width: '80%', height: 40 }}
+            style={styles.slider}
             step
             value={props.formFields.learning}
             minimumValue={1}
@@ -68,6 +82,7 @@ export const FormList = React.memo((props) => {
             maximumTrackTintColor="rgba(160,160,160,0.6)"
             onValueChange={(value) => props.setLearning(value)}
           />
+          <Text style={styles.textStyle}>{props.formFields.learning}</Text>
         </View>
       </View>
 
@@ -77,7 +92,7 @@ export const FormList = React.memo((props) => {
         </View>
         <View style={styles.Split2}>
           <Slider
-            style={{ width: '80%', height: 40 }}
+            style={styles.slider}
             step
             value={props.formFields.satisfaction}
             minimumValue={1}
@@ -86,6 +101,7 @@ export const FormList = React.memo((props) => {
             maximumTrackTintColor="rgba(160,160,160,0.6)"
             onValueChange={(value) => props.setSatisfaction(value)}
           />
+          <Text style={styles.textStyle}>{props.formFields.satisfaction}</Text>
         </View>
       </View>
 
@@ -95,7 +111,7 @@ export const FormList = React.memo((props) => {
         </View>
         <View style={styles.Split2}>
           <Slider
-            style={{ width: '80%', height: 40 }}
+            style={styles.slider}
             step
             value={props.formFields.involvement}
             minimumValue={1}
@@ -104,6 +120,7 @@ export const FormList = React.memo((props) => {
             maximumTrackTintColor="rgba(160,160,160,0.6)"
             onValueChange={(value) => props.setInvolvement(value)}
           />
+          <Text style={styles.textStyle}>{props.formFields.involvement}</Text>
         </View>
       </View>
     </>
@@ -125,13 +142,18 @@ const styles = {
   },
   Split2: {
     flex: 0.6,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   textStyle: {
     color: '#240F48',
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  slider: {
+    height: '50%',
+    width: '80%',
   },
 }

@@ -50,7 +50,7 @@ export const HomeScreen = () => {
       BotContent={
         <>
           <TextHeading Text={'Activity List'} />
-          <ActivityList Entries={entriesList} />
+          <ActivityList category={category} Entries={entriesList} />
         </>
       }
     />

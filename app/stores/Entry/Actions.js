@@ -3,6 +3,7 @@ import { createActions } from 'reduxsauce'
 const signals = {
   requestCreateEntry: [
     'category',
+    'title',
     'date',
     'notes',
     'duration',
@@ -16,6 +17,7 @@ const { Types, Creators } = createActions({
   createEntry: [
     'category',
     'createdAt',
+    'title',
     'date',
     'notes',
     'duration',

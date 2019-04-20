@@ -4,6 +4,7 @@ import EntryActions from 'app/stores/Entry/Actions'
 
 export function* createEntry({
   category,
+  title,
   date,
   notes,
   duration,
@@ -17,6 +18,7 @@ export function* createEntry({
     EntryActions.createEntry(
       category,
       createdAt,
+      title,
       date,
       notes,
       duration,
