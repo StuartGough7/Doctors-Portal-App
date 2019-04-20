@@ -1,16 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Text } from 'react-native'
 import { TextIn } from 'app/components/common'
 import Slider from '@react-native-community/slider'
 
 export const FormList = React.memo((props) => {
-  const [date, setDate] = useState('')
-  const [notes, setNotes] = useState('')
-  const [duration, setDuration] = useState(0)
-  const [learning, setLearning] = useState(1)
-  const [satisfaction, setSatisfaction] = useState(1)
-  const [involvement, setInvolvement] = useState(1)
   return (
     <>
       <View style={styles.Section}>
@@ -21,10 +15,8 @@ export const FormList = React.memo((props) => {
           <TextIn
             wrong={false}
             placeholder="Insert Date"
-            value={date}
-            onChangeText={(value) => {
-              setDate(value)
-            }}
+            value={props.formFields.date}
+            onChangeText={(value) => props.setDate(value)}
           />
         </View>
       </View>
@@ -37,10 +29,8 @@ export const FormList = React.memo((props) => {
           <TextIn
             wrong={false}
             placeholder="Insert Notes"
-            value={notes}
-            onChangeText={(value) => {
-              setNotes(value)
-            }}
+            value={props.formFields.notes}
+            onChangeText={(value) => props.setNotes(value)}
           />
         </View>
       </View>
@@ -53,14 +43,12 @@ export const FormList = React.memo((props) => {
           <Slider
             style={{ width: '80%', height: 40 }}
             step
-            value={duration}
+            value={props.formFields.duration}
             minimumValue={0}
             maximumValue={180}
             minimumTrackTintColor="#240F48"
             maximumTrackTintColor="rgba(160,160,160,0.6)"
-            onValueChange={(value) => {
-              setDuration(value)
-            }}
+            onValueChange={(value) => props.setDuration(value)}
           />
         </View>
       </View>
@@ -73,14 +61,12 @@ export const FormList = React.memo((props) => {
           <Slider
             style={{ width: '80%', height: 40 }}
             step
-            value={learning}
+            value={props.formFields.learning}
             minimumValue={1}
             maximumValue={5}
             minimumTrackTintColor="#240F48"
             maximumTrackTintColor="rgba(160,160,160,0.6)"
-            onValueChange={(value) => {
-              setLearning(value)
-            }}
+            onValueChange={(value) => props.setLearning(value)}
           />
         </View>
       </View>
@@ -93,14 +79,12 @@ export const FormList = React.memo((props) => {
           <Slider
             style={{ width: '80%', height: 40 }}
             step
-            value={satisfaction}
+            value={props.formFields.satisfaction}
             minimumValue={1}
             maximumValue={5}
             minimumTrackTintColor="#240F48"
             maximumTrackTintColor="rgba(160,160,160,0.6)"
-            onValueChange={(value) => {
-              setSatisfaction(value)
-            }}
+            onValueChange={(value) => props.setSatisfaction(value)}
           />
         </View>
       </View>
@@ -113,14 +97,12 @@ export const FormList = React.memo((props) => {
           <Slider
             style={{ width: '80%', height: 40 }}
             step
-            value={involvement}
+            value={props.formFields.involvement}
             minimumValue={1}
             maximumValue={5}
             minimumTrackTintColor="#240F48"
             maximumTrackTintColor="rgba(160,160,160,0.6)"
-            onValueChange={(value) => {
-              setInvolvement(value)
-            }}
+            onValueChange={(value) => props.setInvolvement(value)}
           />
         </View>
       </View>

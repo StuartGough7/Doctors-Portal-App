@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import { LinearGradient } from 'app/components/common'
 import { Config } from 'app/config'
 
-export const CardButton = (props) => {
+export const CardButton = React.memo((props) => {
   return (
     <View style={styles.ShadowWrapper}>
       <TouchableOpacity onPress={() => props.OnPress()} style={[styles.buttonStyle, props.styles]}>
@@ -14,7 +14,7 @@ export const CardButton = (props) => {
       </TouchableOpacity>
     </View>
   )
-}
+})
 
 const styles = {
   ShadowWrapper: {
