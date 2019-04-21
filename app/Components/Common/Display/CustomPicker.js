@@ -40,6 +40,9 @@ const styles = {
   },
   containerStyle: {
     width: '80%',
+    color: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   itemStyle: {
     color: '#fff',
@@ -47,5 +50,7 @@ const styles = {
     fontSize: 16,
     fontWeight: '800',
     textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }

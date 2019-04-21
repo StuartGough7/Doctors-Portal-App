@@ -13,13 +13,15 @@ export const Header = (props) => {
       <View style={styles.ShadowWrapper}>
         <View style={styles.NavStyle}>
           <LinearGradient Color={Config.HeaderColor} styles={{ flexDirection: 'row' }}>
-            <View style={styles.MidStyle}>
+            <View style={styles.LeftCornerStyle}>
               <TouchableOpacity
                 onPress={() => navigate('HomeScreen', null)}
                 style={styles.WhiteCircle}
               >
                 <Image style={styles.Icons} source={Images.Logo} />
               </TouchableOpacity>
+            </View>
+            <View style={styles.MidStyle}>
               <Text style={styles.textStyle}>{props.headerText}</Text>
             </View>
             <View style={styles.RightCornerStyle} />
@@ -55,16 +57,22 @@ const styles = {
     overflow: 'hidden',
   },
   MidStyle: {
-    width: '80%',
     height: '100%',
+    width: '80%',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     paddingLeft: 20,
   },
+  LeftCornerStyle: {
+    height: '100%',
+    width: '10%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   RightCornerStyle: {
     height: '100%',
-    width: '20%',
+    width: '10%',
     justifyContent: 'center',
     paddingRight: 10,
     alignItems: 'flex-end',
@@ -86,14 +94,16 @@ const styles = {
     color: 'white',
     fontSize: 30,
     fontWeight: 'bold',
-    textAlign: 'left',
-    paddingTop: 20,
-    paddingLeft: 20,
+    textAlign: 'center',
+    width: '100%',
   },
   WhiteCircle: {
+    position: 'absolute',
+    right: -40,
     height: 60,
     width: 60,
-    borderRadius: 30,
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   Icons: {
     height: '100%',

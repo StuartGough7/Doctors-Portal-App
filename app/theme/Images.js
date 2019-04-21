@@ -1,4 +1,4 @@
 export const Images = {
-  Icon: { uri: 'Icon' },
-  Logo: { uri: 'HomeCut' },
+  Icon: { uri: 'appicon' },
+  Logo: { uri: 'homeicon' },
 }

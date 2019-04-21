@@ -55,7 +55,7 @@ export const FormList = React.memo((props) => {
         <View style={styles.Split2}>
           <Slider
             style={styles.slider}
-            step
+            step={1}
             value={props.formFields.duration}
             minimumValue={0}
             maximumValue={180}
@@ -74,7 +74,7 @@ export const FormList = React.memo((props) => {
         <View style={styles.Split2}>
           <Slider
             style={styles.slider}
-            step
+            step={1}
             value={props.formFields.learning}
             minimumValue={1}
             maximumValue={5}
@@ -93,7 +93,7 @@ export const FormList = React.memo((props) => {
         <View style={styles.Split2}>
           <Slider
             style={styles.slider}
-            step
+            step={1}
             value={props.formFields.satisfaction}
             minimumValue={1}
             maximumValue={5}
@@ -112,7 +112,7 @@ export const FormList = React.memo((props) => {
         <View style={styles.Split2}>
           <Slider
             style={styles.slider}
-            step
+            step={1}
             value={props.formFields.involvement}
             minimumValue={1}
             maximumValue={5}
