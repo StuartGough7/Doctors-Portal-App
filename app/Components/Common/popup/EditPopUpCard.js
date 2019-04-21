@@ -6,12 +6,12 @@ import EntryActions from 'app/stores/Entry/Actions'
 import { useMappedAction } from 'app/hooks'
 
 const mapActions = {
-  createEntry: EntryActions.requestCreateEntry,
+  updateEntry: EntryActions.requestUpdateEntry,
   deleteEntry: EntryActions.requestDeleteEntry,
 }
 
 export const EditPopUpCard = React.memo((props) => {
-  const { createEntry, deleteEntry } = useMappedAction(mapActions)
+  const { updateEntry, deleteEntry } = useMappedAction(mapActions)
 
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
@@ -74,7 +74,8 @@ export const EditPopUpCard = React.memo((props) => {
         <CardButton
           Text={'Update'}
           OnPress={() => {
-            createEntry(
+            updateEntry(
+              props.completedAt,
               props.category,
               title,
               date,

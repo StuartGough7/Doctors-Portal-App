@@ -23,8 +23,26 @@ export const createEntry = (
   })
 }
 
+export const updateEntry = (
+  state,
+  { completedAt, title, date, category, notes, duration, learning, satisfaction, involvement }
+) => {
+  const currentCategory = state.get(category) || {}
+  return state.set(category, {
+    ...currentCategory,
+    [completedAt]: {
+      title,
+      date,
+      notes,
+      duration,
+      learning,
+      satisfaction,
+      involvement,
+    },
+  })
+}
+
 export const deleteEntry = (state, { category, completedAt }) => {
-  // console.warn([category, createdAt])
   return state.deleteIn([category, completedAt])
 }
 
@@ -43,5 +61,6 @@ export const singleEntryDetailsByDateKey = (state, category, date) => {
 // Reduxsauce Create Reducer
 export default createReducer(INITIAL_STATE, {
   [EntryTypes.CREATE_ENTRY]: createEntry,
+  [EntryTypes.UPDATE_ENTRY]: updateEntry,
   [EntryTypes.DELETE_ENTRY]: deleteEntry,
 })

@@ -29,6 +29,32 @@ export function* createEntry({
   ) // Create a new entry
 }
 
+export function* updateEntry({
+  completedAt,
+  category,
+  title,
+  date,
+  notes,
+  duration,
+  learning,
+  satisfaction,
+  involvement,
+}) {
+  yield put(
+    EntryActions.updateEntry(
+      category,
+      completedAt,
+      title,
+      date,
+      notes,
+      duration,
+      learning,
+      satisfaction,
+      involvement
+    )
+  ) // Create a new entry
+}
+
 export function* deleteEntry({ category, completedAt }) {
   yield put(EntryActions.deleteEntry(category, completedAt))
 }
