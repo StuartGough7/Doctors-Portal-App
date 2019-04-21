@@ -28,3 +28,7 @@ export function* createEntry({
     )
   ) // Create a new entry
 }
+
+export function* deleteEntry({ category, completedAt }) {
+  yield put(EntryActions.deleteEntry(category, completedAt))
+}

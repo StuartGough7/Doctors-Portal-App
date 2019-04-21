@@ -23,6 +23,11 @@ export const createEntry = (
   })
 }
 
+export const deleteEntry = (state, { category, completedAt }) => {
+  // console.warn([category, createdAt])
+  return state.deleteIn([category, completedAt])
+}
+
 // =========== Selectors ===================================
 
 export const getAllEntriesByCategory = (state, category) => {
@@ -38,4 +43,5 @@ export const singleEntryDetailsByDateKey = (state, category, date) => {
 // Reduxsauce Create Reducer
 export default createReducer(INITIAL_STATE, {
   [EntryTypes.CREATE_ENTRY]: createEntry,
+  [EntryTypes.DELETE_ENTRY]: deleteEntry,
 })

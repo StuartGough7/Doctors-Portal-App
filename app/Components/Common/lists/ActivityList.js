@@ -13,7 +13,7 @@ export const ActivityList = (props) => {
   const renderList = () =>
     props.Entries.map((item, index) => {
       const singleEntry = singleEntryDetails(props.category, item)
-      console.warn([singleEntry])
+
       return (
         <SingleActivity
           date={calculateDate(item)}
@@ -21,6 +21,7 @@ export const ActivityList = (props) => {
           key={index}
           item={item}
           details={singleEntry}
+          Edit={() => props.Edit(item)}
           OnPress={() => props.OnPress(item)}
         />
       )

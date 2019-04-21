@@ -12,6 +12,7 @@ import {
   TextHeading,
   ActivityList,
   FormPopUpCard,
+  EditPopUpCard,
 } from 'app/components/common'
 
 const mapState = (state) => ({
@@ -20,10 +21,12 @@ const mapState = (state) => ({
 
 export const HomeScreen = () => {
   const [pop, setPop] = useState(false)
+  const [popEdit, setPopEdit] = useState(false)
+  const [completedAt, setCompletedAt] = useState('')
   const [category, setCategory] = useState('Paediatrics')
   const [entriesList, setEntriesList] = useState([])
   const { entries } = useMappedState(mapState)
-  useEffect(() => setEntriesList(entries(category)), [category, pop])
+  useEffect(() => setEntriesList(entries(category)), [category, pop, popEdit])
   return (
     <LayoutNoBottom
       TopContent={
@@ -45,12 +48,26 @@ export const HomeScreen = () => {
             OnPress={() => setPop((pop) => !pop)}
             hide={() => setPop(false)}
           />
+          <EditPopUpCard
+            completedAt={completedAt}
+            visible={popEdit}
+            category={category}
+            OnPress={() => setPopEdit(false)}
+            hide={() => setPopEdit(false)}
+          />
         </>
       }
       BotContent={
         <>
           <TextHeading Text={'Activity List'} />
-          <ActivityList category={category} Entries={entriesList} />
+          <ActivityList
+            Edit={(item) => {
+              setCompletedAt(item)
+              setPopEdit(true)
+            }}
+            category={category}
+            Entries={entriesList}
+          />
         </>
       }
     />

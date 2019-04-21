@@ -11,6 +11,7 @@ const signals = {
     'satisfaction',
     'involvement',
   ],
+  requestDeleteEntry: ['category', 'completedAt'],
 }
 
 const { Types, Creators } = createActions({
@@ -25,6 +26,7 @@ const { Types, Creators } = createActions({
     'satisfaction',
     'involvement',
   ], // Create a new profile with the data provided
+  deleteEntry: ['category', 'completedAt'],
   ...signals, // Spread all the signals here
 })
 

@@ -14,6 +14,7 @@ export * from './lists/ActivityList'
 export * from './lists/FormList'
 
 export * from './popup/FormPopUpCard'
+export * from './popup/EditPopUpCard'
 
 export * from './input/TextIn'
 

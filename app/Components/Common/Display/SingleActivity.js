@@ -1,17 +1,17 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 
 export const SingleActivity = (props) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => props.Edit()}>
       <View style={styles.Section1}>
         <Text style={styles.textStyle}>{props.date}</Text>
       </View>
       <View style={styles.Section2}>
-        <Text style={styles.textStyle}>{props.details.title || 'No Title'}</Text>
+        <Text style={styles.textStyle}>{props.details ? props.details.title : 'No Title'}</Text>
       </View>
       <View style={styles.Section3} />
-    </View>
+    </TouchableOpacity>
   )
 }
 
