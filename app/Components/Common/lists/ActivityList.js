@@ -21,7 +21,7 @@ export const ActivityList = (props) => {
           key={index}
           item={item}
           details={singleEntry}
-          Edit={() => props.Edit(item)}
+          Edit={() => props.Edit(item, singleEntry)}
           OnPress={() => props.OnPress(item)}
         />
       )

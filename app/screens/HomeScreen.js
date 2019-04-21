@@ -25,6 +25,8 @@ export const HomeScreen = () => {
   const [completedAt, setCompletedAt] = useState('')
   const [category, setCategory] = useState('Paediatrics')
   const [entriesList, setEntriesList] = useState([])
+  const [entryValues, setEntryValues] = useState([])
+
   const { entries } = useMappedState(mapState)
   useEffect(() => setEntriesList(entries(category)), [category, pop, popEdit])
   return (
@@ -52,6 +54,7 @@ export const HomeScreen = () => {
             completedAt={completedAt}
             visible={popEdit}
             category={category}
+            values={entryValues}
             OnPress={() => setPopEdit(false)}
             hide={() => setPopEdit(false)}
           />
@@ -61,9 +64,10 @@ export const HomeScreen = () => {
         <>
           <TextHeading Text={'Activity List'} />
           <ActivityList
-            Edit={(item) => {
+            Edit={(item, singleEntry) => {
               setCompletedAt(item)
               setPopEdit(true)
+              setEntryValues(singleEntry)
             }}
             category={category}
             Entries={entriesList}

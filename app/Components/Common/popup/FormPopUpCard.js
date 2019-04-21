@@ -20,10 +20,23 @@ export const FormPopUpCard = React.memo((props) => {
   const [satisfaction, setSatisfaction] = useState(1)
   const [involvement, setInvolvement] = useState(1)
 
+  const clearFields = () => {
+    setTitle('')
+    setDate('')
+    setNotes('')
+    setDuration(0)
+    setLearning(1)
+    setSatisfaction(1)
+    setInvolvement(1)
+  }
+
   return (
     <FormPopUpCardLayout
       visible={props.visible}
-      hide={() => props.hide()}
+      hide={() => {
+        props.hide()
+        clearFields()
+      }}
       TopPop={<Text style={styles.HeadingStyle}>{`${props.category} Form`}</Text>}
       MidPop={
         <FormList
@@ -40,7 +53,10 @@ export const FormPopUpCard = React.memo((props) => {
       BotPop1={
         <CardButton
           Text={'Cancel'}
-          OnPress={() => props.hide()}
+          OnPress={() => {
+            props.hide()
+            clearFields()
+          }}
           styles={{ borderBottomRightRadius: 35, borderTopRightRadius: 35 }}
         />
       }
@@ -59,6 +75,7 @@ export const FormPopUpCard = React.memo((props) => {
               involvement
             )
             props.hide()
+            clearFields()
           }}
           styles={{ borderBottomLeftRadius: 35, borderTopLeftRadius: 35 }}
         />

@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 import { FormPopUpCardLayout, CardButton, FormList } from 'app/components/common'
 import EntryActions from 'app/stores/Entry/Actions'
@@ -21,10 +21,22 @@ export const EditPopUpCard = React.memo((props) => {
   const [satisfaction, setSatisfaction] = useState(1)
   const [involvement, setInvolvement] = useState(1)
 
+  useEffect(() => {
+    setTitle(props.values.title)
+    setDate(props.values.date)
+    setNotes(props.values.notes)
+    setDuration(props.values.duration)
+    setLearning(props.values.learning)
+    setSatisfaction(props.values.satisfaction)
+    setInvolvement(props.values.involvement)
+  }, [props.values])
+
   return (
     <FormPopUpCardLayout
       visible={props.visible}
-      hide={() => props.hide()}
+      hide={() => {
+        props.hide()
+      }}
       TopPop={<Text style={styles.HeadingStyle}>{`Edit ${props.category} Activity`}</Text>}
       MidPop={
         <>
@@ -52,13 +64,15 @@ export const EditPopUpCard = React.memo((props) => {
       BotPop1={
         <CardButton
           Text={'Cancel'}
-          OnPress={() => props.hide()}
+          OnPress={() => {
+            props.hide()
+          }}
           styles={{ borderBottomRightRadius: 35, borderTopRightRadius: 35 }}
         />
       }
       BotPop2={
         <CardButton
-          Text={'Submit'}
+          Text={'Update'}
           OnPress={() => {
             createEntry(
               props.category,
